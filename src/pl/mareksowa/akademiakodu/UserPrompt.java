@@ -22,8 +22,20 @@ public class UserPrompt {
                 "'4' wyjscie z programu");
     }
 
+    public void displayOptionsEmployeMessage(){
+        getPrinter().displayToUser("\n" + ls + "wprowadz cyfre i zatwierdz enterem by: \n" +
+                "'1' zatrudnij pracownika \n" +
+                "'2' zwolnij pracownika \n" +
+                "'3' edycja pracownika \n" +
+                "'4' powrót");
+    }
+
     public void displayUnknownCommand(){
         getPrinter().displayToUser(ls + "nierozpoznano komendy");
+    }
+
+    public void displayGettingBack(){
+        getPrinter().displayToUser(ls + "powrót");
     }
 
     public void displayGoodbyeMessage(){

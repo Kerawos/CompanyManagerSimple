@@ -47,6 +47,47 @@ public class Menu {
     }
 
     private void subMenuEmployee(){
+        String command;
+        boolean working = true;
+        do {
+            getUp().displayOptionsEmployeMessage();
+            command = getReceiver().getInputString();
+            switch (command) {
+                case "1": {
+                    subMenuEmployeeAdd();
+                    break;
+                }
+                case "2": {
+                    subMenuEmployeeDelete();
+                    break;
+                }
+                case "3":{
+                    subMenuEmployeeEdit();
+                    break;
+                }
+                case "4": {
+                    getUp().displayGettingBack();
+                    working = false;
+                    break;
+                }
+                default: {
+                    getUp().displayUnknownCommand();
+                    break;
+                }
+            }
+        } while (working);
+
+    }
+
+    private void subMenuEmployeeAdd(){
+
+    }
+
+    private void subMenuEmployeeDelete(){
+
+    }
+
+    private void subMenuEmployeeEdit(){
 
     }
 
@@ -57,6 +98,8 @@ public class Menu {
     private void subMenuCompany(){
 
     }
+
+
 
 
 
