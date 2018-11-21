@@ -2,11 +2,11 @@ package pl.mareksowa.akademiakodu;
 
 import java.util.Scanner;
 
-public class Reciver {
+public class Receiver {
 
     private Scanner sc;
 
-    public Reciver() {
+    public Receiver() {
         this.sc = new Scanner(System.in);
     }
 

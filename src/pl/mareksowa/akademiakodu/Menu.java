@@ -2,40 +2,43 @@ package pl.mareksowa.akademiakodu;
 
 public class Menu {
 
-    private Printer pr;
-    private Reciver rc;
-    private String ls; // line starter
+    private UserPrompt up;
+    private Receiver rc;
+
 
     public Menu() {
-        this.pr = new Printer();
-        this.rc = new Reciver();
-        ls = ">";
+        this.up = new UserPrompt();
+        this.rc = new Receiver();
     }
 
     public void startMenu(){
         boolean working = true;
         String command;
-        displayWelcomeMessage();
+        getUp().displayWelcomeMessage();
+
         do {
-            displayOptionsMessage();
-            command = getReciver().getInputString();
+            getUp().displayOptionsMessage();
+            command = getReceiver().getInputString();
             switch (command){
                 case "1":{
+                    subMenuEmployee();
                     break;
                 }
                 case "2":{
+                    subMenuAsset();
                     break;
                 }
                 case "3":{
+                    subMenuCompany();
                     break;
                 }
                 case "4":{
-                    displayGoodbyeMessage();
+                    getUp().displayGoodbyeMessage();
                     working = false;
                     break;
                 }
                 default:{
-                    displayUnknownCommand();
+                    getUp().displayUnknownCommand();
                     break;
                 }
             }
@@ -43,31 +46,28 @@ public class Menu {
 
     }
 
-    private void displayWelcomeMessage(){
-        getPrinter().displayToUser(ls+ "Witaj w aplikacji 'TWOJA FIRMA'");
+    private void subMenuEmployee(){
+
     }
 
-    private void displayOptionsMessage(){
-        getPrinter().displayToUser("\n" + ls + "wprowadz cyfre i zatwierdz enterem by: \n" +
-                "'1' zarzadzanie pracownikami \n" +
-                "'2' zarzadzanie aktywami \n" +
-                "'3' zarzadzanie firma \n" +
-                "'4' wyjscie z programu");
+    private void subMenuAsset(){
+
     }
 
-    private void displayUnknownCommand(){
-        getPrinter().displayToUser(ls + "nierozpoznano komendy");
+    private void subMenuCompany(){
+
     }
 
-    private void displayGoodbyeMessage(){
-        getPrinter().displayToUser(ls+"Dziekujemy ze skozystales z naszej apliakcji, do zobaczenia!");
+
+
+
+
+    public UserPrompt getUp() {
+        return up;
     }
 
-    public Printer getPrinter() {
-        return pr;
-    }
-
-    public Reciver getReciver() {
+    public Receiver getReceiver() {
         return rc;
     }
+
 }
