@@ -35,6 +35,7 @@ public class Menu {
                     break;
                 }
                 default:{
+                    displayUnknownCommand();
                     break;
                 }
             }
@@ -47,10 +48,10 @@ public class Menu {
     }
 
     private void displayOptionsMessage(){
-        getPrinter().displayToUser(ls+"wprowadz cyfre i zatwierdz enterem by: /ln" +
-                "'1' zarzadzanie pracownikami /ln" +
-                "'2' zarzadzanie aktywami /ln" +
-                "'3' zarzadzanie firma /ln" +
+        getPrinter().displayToUser("\n" + ls + "wprowadz cyfre i zatwierdz enterem by: \n" +
+                "'1' zarzadzanie pracownikami \n" +
+                "'2' zarzadzanie aktywami \n" +
+                "'3' zarzadzanie firma \n" +
                 "'4' wyjscie z programu");
     }
 
@@ -61,8 +62,6 @@ public class Menu {
     private void displayGoodbyeMessage(){
         getPrinter().displayToUser(ls+"Dziekujemy ze skozystales z naszej apliakcji, do zobaczenia!");
     }
-
-
 
     public Printer getPrinter() {
         return pr;
