@@ -126,21 +126,26 @@ public class Menu {
             getUp().displayOptionsCompanyMessage();
             command = getReceiver().getInputString();
             switch (command) {
-                case "1": {
+                case "1":{
+                    getUp().displayCompanyStats(getCompany());
+                    break;
+                }
+                case "2": {
                     getUp().displayCompanyNewHeadQuaters();
                     getCompany().setHeadquaters(getReceiver().getInputString());
                     getUp().displayCompanySucces();
                     break;
                 }
-                case "2": {
-                    //limit pracownikow
+                case "3": {
+                    getUp().displayCompanyNewEmployLimit();
+                    getAcc().editEmployeeLimit(getCompany(), Integer.parseInt(getReceiver().getInputString()));
                     break;
                 }
-                case "3":{
+                case "4":{
                     //limit assetow
                     break;
                 }
-                case "4": {
+                case "5": {
                     getUp().displayGettingBack();
                     working = false;
                     break;

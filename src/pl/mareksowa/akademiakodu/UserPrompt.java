@@ -71,14 +71,27 @@ public class UserPrompt {
         getPrinter().displayToUser("Dziekujemy ze skozystales z naszej apliakcji, do zobaczenia!");
     }
 
+    public void displayEmployeeSizeError(){
+        getPrinter().displayToUser("Niestety nie mozna zmodyfikowac ilosci miejsc pracownikow, " +
+                "sprawdz ilosc pracownikow.");
+    }
+
     public Printer getPrinter() {
         return printer;
     }
 
     public void displayOptionsCompanyMessage() {
         getPrinter().displayToUser("\n" + "wprowadz cyfre i zatwierdz enterem by: \n" +
-                "'1' zmien siedzibe firmy \n" +
-                "'2' zmien limit pracownikow\n" +
-                "'3' zmien limit assetow \n");
+                "'1' wyswietl dane firmy \n" +
+                "'2' zmien siedzibe firmy \n" +
+                "'3' zmien limit pracownikow\n" +
+                "'4' zmien limit assetow \n" +
+                "'5' powrot \n");
+    }
+
+    public void displayCompanyStats(Company company){
+        getPrinter().displayToUser("Firma: " + company.getName() +
+                "\n Siedziba: " + company.getHeadquaters() +
+                "\n Majatek: " + company.getMoney());
     }
 }
