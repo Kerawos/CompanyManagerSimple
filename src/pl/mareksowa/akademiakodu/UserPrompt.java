@@ -36,6 +36,26 @@ public class UserPrompt {
         getPrinter().displayToUser("Zmiany w firmie zakonczone sukcesem");
     }
 
+    public void displayEmployeeAddName(){
+        getPrinter().displayToUser("wprowadz imie i nazwisko pracownika");
+    }
+
+    public void displayEmployeeAddExc(){
+        getPrinter().displayToUser("wprowadz doswiadczenie pracownika");
+    }
+
+    public void displayEmployeeAddSalary(){
+        getPrinter().displayToUser("wprowadz wynagrodzenie pracownika");
+    }
+
+    public void displayEmployeeAddSuccess(){
+        getPrinter().displayToUser("nie udalo sie dokonac zmian pracownika");
+    }
+
+    public void displayEmployeeAddFail(){
+        getPrinter().displayToUser("wprowadz imie nowego pracownika");
+    }
+
 
 
     public void displayWelcomeMessage(){
