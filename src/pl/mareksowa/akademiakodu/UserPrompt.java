@@ -138,4 +138,8 @@ public class UserPrompt {
     public void displayEmployeeLimitSuccess(int newLimit){
         getPrinter().displayToUser("Nowy limit miejsc pracy: " + newLimit);
     }
+
+    public void displayEmployeeAll(Company company){
+
+    }
 }

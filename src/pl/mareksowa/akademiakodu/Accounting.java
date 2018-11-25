@@ -84,17 +84,10 @@ public class Accounting {
         company.getEmployes()[employeeIndex] = null;
         Employee[] newEmployees = new Employee[company.getEmployes().length-1];
         for (int i = 0; i < newEmployees.length; i++) {
-            if (i==employeeIndex || i>employeeIndex){
-
-            }
-            if (company.getEmployes()[i]==null){
+            if (i>=employeeIndex){
                 newEmployees[i]=company.getEmployes()[i+1];
-            } else {
-
             }
-            newEmployees[i]=company.getEmployes()[i];
         }
-
     }
 
 
