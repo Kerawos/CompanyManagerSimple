@@ -73,10 +73,11 @@ public class UserPrompt {
 
     public void displayOptionsEmployeMessage(){
         getPrinter().displayToUser("\n" + "wprowadz cyfre i zatwierdz enterem by: \n" +
-                "'1' zatrudnij pracownika \n" +
-                "'2' zwolnij pracownika \n" +
-                "'3' edycja pracownika \n" +
-                "'4' powrót");
+                "'1' wyświetl pracowników \n" +
+                "'2' zatrudnij pracownika \n" +
+                "'3' zwolnij pracownika \n" +
+                "'4' edycja pracownika \n" +
+                "'5' powrót");
     }
 
     public void displayUnknownCommand(){
@@ -142,9 +143,11 @@ public class UserPrompt {
         Employee emp;
         for (int i = 0; i < company.getEmployes().length; i++) {
             emp = company.getEmployes()[i];
-            getPrinter().displayToUser("Pracownik: " + emp.getName()+
-                    "Doświadczenie: " + emp.getExperiance() +
-                    "Wynagrodzenie: " + emp.getSalary());
+            if (emp!=null){
+                getPrinter().displayToUser(i + ". Pracownik: " + emp.getName()+
+                        "Doświadczenie: " + emp.getExperiance() +
+                        "Wynagrodzenie: " + emp.getSalary());
+            }
         }
     }
 

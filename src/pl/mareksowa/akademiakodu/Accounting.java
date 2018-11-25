@@ -43,10 +43,12 @@ public class Accounting {
 
     public boolean employeeCanHire(Company company, Employee employeeToHire){
         for (int i = 0; i < company.getEmployes().length; i++) {
-            if (company.getEmployes()[i].getName().equals(employeeToHire.getName())) {
-                return false;
-            } else if (company.getEmployes()[i] == null) {
-                return true;
+            if (company.getEmployes()[i]!=null){
+                if (company.getEmployes()[i].getName().equals(employeeToHire.getName())) {
+                    return false;
+                } else if (company.getEmployes()[i] == null) {
+                    return true;
+                }
             }
         }
         return false;

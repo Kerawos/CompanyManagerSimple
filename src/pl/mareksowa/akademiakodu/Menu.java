@@ -76,19 +76,23 @@ public class Menu {
             getUp().displayOptionsEmployeMessage();
             command = getReceiver().getInputString();
             switch (command) {
-                case "1": {
-                    subMenuEmployeeAdd();
+                case "1":{
+                    getUp().displayEmployeeAll(getCompany());
                     break;
                 }
                 case "2": {
+                    subMenuEmployeeAdd();
+                    break;
+                }
+                case "3": {
                     subMenuEmployeeDelete();
                     break;
                 }
-                case "3":{
+                case "4":{
                     subMenuEmployeeEdit();
                     break;
                 }
-                case "4": {
+                case "5": {
                     getUp().displayGettingBack();
                     working = false;
                     break;
