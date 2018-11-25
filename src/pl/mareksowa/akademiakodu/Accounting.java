@@ -11,7 +11,11 @@ public class Accounting {
         return new Company(nameCompany, hedquaters, assetSize, employeeSize, valueCompany);
     }
 
-    public void editEmployeeLimit(Company company, int newLimit){
+    public void employeeEditLimit(Company company, int newLimit){
+        if (newLimit<0){
+            getUp().displayEmployeeSizeError();
+            return;
+        }
         Employee[] newEmployee = new Employee[newLimit];
         if (newLimit>=company.getEmployes().length){
             for (int i = 0; i < company.getEmployes().length; i++) {
@@ -19,20 +23,35 @@ public class Accounting {
                     newEmployee[i] = company.getEmployes()[i];
                 }
             }
-            company.setEmployes(newEmployee);
         } else {
             for (int i = 0; i < company.getEmployes().length; i++) {
-                if (company.getEmployes()[i]!=null){
-                    if (newLimit<i){
+                if (newLimit>=i-1) {
+                    if (company.getEmployes()[i] != null) {
                         getUp().displayEmployeeSizeError();
-                        break;
-                    } else {
-                        newEmployee[i] = company.getEmployes()[i];
                     }
+                } else {
+                    newEmployee[i] = company.getEmployes()[i];
                 }
+                break;
             }
         }
+        company.setEmployes(newEmployee);
     }
+
+    public void employeeHire(Company company, Employee employee){
+         for (int i = 0; i < company.getEmployes().length; i++) {
+            if (company.getEmployes()[i]==null){
+                company.getEmployes()[i]=employee;
+                getUp().displayEmployeHireSucces(employee);
+                return;
+            }
+        }
+        getUp().displayEmployeHireError(employee);
+    }
+
+
+
+
 
 
     public UserPrompt getUp() {

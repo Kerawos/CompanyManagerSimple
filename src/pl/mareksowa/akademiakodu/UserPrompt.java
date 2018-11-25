@@ -112,6 +112,17 @@ public class UserPrompt {
     public void displayCompanyStats(Company company){
         getPrinter().displayToUser("Firma: " + company.getName() +
                 "\n Siedziba: " + company.getHeadquaters() +
-                "\n Majatek: " + company.getMoney());
+                "\n Majatek: " + company.getMoney()+
+                "\n Miejsca pracy: " + company.getEmployes().length +
+                "\n Ilość dóbr: " + company.getAssets().length);
+    }
+
+    public void displayEmployeHireSucces(Employee employee){
+        getPrinter().displayToUser("Pracownik: " + employee.getName() + " zatrudniony!");
+    }
+
+    public void displayEmployeHireError(Employee employee){
+        getPrinter().displayToUser("Niestety nie udało się zatrudnić pracownika: " + employee.getName() +
+                ", sprawdź miejsca pracy.");
     }
 }
