@@ -103,7 +103,23 @@ public class Menu {
     }
 
     private void subMenuEmployeeAdd(){
-
+        if (getAcc().employeeCanHire(getCompany())){
+            getUp().displayEmployeeAddName();
+            String name = getReceiver().getInputString();
+            getUp().displayEmployeeAddExc();
+            int exc = Integer.parseInt(getReceiver().getInputString());
+            getUp().displayEmployeeAddSalary();
+            int salary = Integer.parseInt(getReceiver().getInputString());
+            Employee employeeToHire = new Employee(name, exc, salary);
+            if(getAcc().employeeCanHire(getCompany(), employeeToHire)){
+                getAcc().employeeHire(getCompany(), employeeToHire);
+                getUp().displayEmployeHireSucces(employeeToHire);
+            } else {
+                getUp().displayEmployeHireError(employeeToHire);
+            }
+        } else {
+            getUp().displayEmployeeSizeError();
+        }
     }
 
     private void subMenuEmployeeDelete(){
@@ -138,7 +154,13 @@ public class Menu {
                 }
                 case "3": {
                     getUp().displayCompanyNewEmployLimit();
-                    getAcc().editEmployeeLimit(getCompany(), Integer.parseInt(getReceiver().getInputString()));
+                    int newLimit = Integer.parseInt(getReceiver().getInputString());
+                    if(getAcc().employeeCanEditLimit(getCompany(), newLimit)){
+                        getAcc().employeeEditLimit(getCompany(), newLimit);
+                        getUp().displayEmployeeLimitSuccess(newLimit);
+                    } else {
+                        getUp().displayEmployeeSizeError();
+                    }
                     break;
                 }
                 case "4":{

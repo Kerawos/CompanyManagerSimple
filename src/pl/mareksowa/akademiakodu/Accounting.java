@@ -1,5 +1,9 @@
 package pl.mareksowa.akademiakodu;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Accounting {
     private UserPrompt up;
 
@@ -11,42 +15,86 @@ public class Accounting {
         return new Company(nameCompany, hedquaters, assetSize, employeeSize, valueCompany);
     }
 
-    public void employeeEditLimit(Company company, int newLimit){
+    public boolean employeeCanEditLimit(Company company, int newLimit){
         if (newLimit<0){
-            getUp().displayEmployeeSizeError();
-            return;
-        }
-        Employee[] newEmployee = new Employee[newLimit];
-        if (newLimit>=company.getEmployes().length){
-            for (int i = 0; i < company.getEmployes().length; i++) {
-                if (company.getEmployes()[i]!=null){
-                    newEmployee[i] = company.getEmployes()[i];
-                }
-            }
+            return false;
+        } else if (newLimit>=company.getEmployes().length){
+            return true;
         } else {
             for (int i = 0; i < company.getEmployes().length; i++) {
                 if (newLimit>=i-1) {
                     if (company.getEmployes()[i] != null) {
-                        getUp().displayEmployeeSizeError();
+                        return false;
                     }
                 } else {
-                    newEmployee[i] = company.getEmployes()[i];
+                    return true;
                 }
-                break;
             }
+        } return true;
+    }
+
+    public void employeeEditLimit(Company company, int newLimit){
+        Employee[] newEmployee = new Employee[newLimit];
+        for (int i = 0; i < newEmployee.length; i++) {
+            newEmployee[i]=company.getEmployes()[i];
         }
         company.setEmployes(newEmployee);
     }
 
-    public void employeeHire(Company company, Employee employee){
-         for (int i = 0; i < company.getEmployes().length; i++) {
-            if (company.getEmployes()[i]==null){
-                company.getEmployes()[i]=employee;
-                getUp().displayEmployeHireSucces(employee);
-                return;
+    public boolean employeeCanHire(Company company, Employee employeeToHire){
+        for (int i = 0; i < company.getEmployes().length; i++) {
+            if (company.getEmployes()[i].getName().equals(employeeToHire.getName())) {
+                return false;
+            } else if (company.getEmployes()[i] == null) {
+                return true;
             }
         }
-        getUp().displayEmployeHireError(employee);
+        return false;
+    }
+
+    public void employeeHire(Company company, Employee employeeToHire){
+         for (int i = 0; i < company.getEmployes().length; i++) {
+            if (company.getEmployes()[i]==null){
+                company.getEmployes()[i]=employeeToHire;
+                break;
+            }
+        }
+    }
+
+    public boolean employeeCanHire(Company company){
+        for (int i = 0; i < company.getEmployes().length; i++) {
+            if (company.getEmployes()[i]==null){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean employyeCanDelete(Company company, int employeeIndex){
+        if (employeeIndex<0 || employeeIndex>=company.getEmployes().length){
+            return false;
+        }
+        if (company.getEmployes()[employeeIndex]!=null){
+            return false;
+        }
+        return true;
+    }
+
+    public void employeeDelete(Company company, int employeeIndex){
+        company.getEmployes()[employeeIndex] = null;
+        Employee[] newEmployees = new Employee[company.getEmployes().length-1];
+        for (int i = 0; i < newEmployees.length; i++) {
+            if (i==employeeIndex || i>employeeIndex){
+
+            }
+            if (company.getEmployes()[i]==null){
+                newEmployees[i]=company.getEmployes()[i+1];
+            } else {
+
+            }
+            newEmployees[i]=company.getEmployes()[i];
+        }
+
     }
 
 

@@ -125,4 +125,17 @@ public class UserPrompt {
         getPrinter().displayToUser("Niestety nie udało się zatrudnić pracownika: " + employee.getName() +
                 ", sprawdź miejsca pracy.");
     }
+
+    public void displayEmployeDelSucces(Employee employee){
+        getPrinter().displayToUser("Pracownik: " + employee.getName() + " zwolniony!");
+    }
+
+    public void displayEmployeDelError(Employee employee){
+        getPrinter().displayToUser("Niestety nie udało się zwolnić pracownika: " + employee.getName() +
+                ", sprawdź pracowników.");
+    }
+
+    public void displayEmployeeLimitSuccess(int newLimit){
+        getPrinter().displayToUser("Nowy limit miejsc pracy: " + newLimit);
+    }
 }
