@@ -70,7 +70,7 @@ public class Accounting {
         return false;
     }
 
-    public boolean employyeCanDelete(Company company, int employeeIndex){
+    public boolean employeeCanDelete(Company company, int employeeIndex){
         if (employeeIndex<0 || employeeIndex>=company.getEmployes().length){
             return false;
         }

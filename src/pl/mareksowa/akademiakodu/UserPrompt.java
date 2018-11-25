@@ -130,9 +130,8 @@ public class UserPrompt {
         getPrinter().displayToUser("Pracownik: " + employee.getName() + " zwolniony!");
     }
 
-    public void displayEmployeDelError(Employee employee){
-        getPrinter().displayToUser("Niestety nie udało się zwolnić pracownika: " + employee.getName() +
-                ", sprawdź pracowników.");
+    public void displayEmployeDelError(){
+        getPrinter().displayToUser("Niestety nie udało się zwolnić podanego pracownika, sprawdź pracowników.");
     }
 
     public void displayEmployeeLimitSuccess(int newLimit){
@@ -140,6 +139,16 @@ public class UserPrompt {
     }
 
     public void displayEmployeeAll(Company company){
+        Employee emp;
+        for (int i = 0; i < company.getEmployes().length; i++) {
+            emp = company.getEmployes()[i];
+            getPrinter().displayToUser("Pracownik: " + emp.getName()+
+                    "Doświadczenie: " + emp.getExperiance() +
+                    "Wynagrodzenie: " + emp.getSalary());
+        }
+    }
 
+    public void displayeEmployeeDelProvideIndex(){
+        getPrinter().displayToUser("Podaj index pracownika do zwolnienia");
     }
 }

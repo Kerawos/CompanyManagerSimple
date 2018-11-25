@@ -123,7 +123,16 @@ public class Menu {
     }
 
     private void subMenuEmployeeDelete(){
-
+        getUp().displayEmployeeAll(company);
+        getUp().displayeEmployeeDelProvideIndex();
+        int index = Integer.parseInt(getReceiver().getInputString());
+        if (getAcc().employeeCanDelete(getCompany(), index)){
+            Employee deletedEmploye = getCompany().getEmployes()[index];
+            getAcc().employeeDelete(company, index);
+            getUp().displayEmployeDelSucces(deletedEmploye);
+        } else {
+            getUp().displayEmployeDelError();
+        }
     }
 
     private void subMenuEmployeeEdit(){
