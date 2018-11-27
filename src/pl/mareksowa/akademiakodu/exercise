@@ -1,0 +1,11 @@
+Zadanie powtorzeniowe firma. Napisz program ktory bedzie symulowal zarzadzenie firma. Program powienien posiadac mozliwosc:
+- zmiany siedziby firmy, zmiany jej miejsca, ustalenie majatku poczatkowego
+- klasa Firma z odpowiednimi polami: nazwa, siedziba, majatek poczatkowy, tablica pracownikow (jako tablica) oraz tablica  aktywow(narzedzi) tez jako tablica.
+- zarzadzanie pracownikami (zatrudnianie, wyswietlanie pracownikow, zwalnianie, mozliwosc awansowania i zwiekszania pensji).
+- stworz klase pracownik, pola: imie, wiek, pensja, pozycja.
+- stworz klasa sprzet, pola: nazwa, rodzaj, wartosc, stopaAmortyzacji.
+- zarzadanie sprzetem firmy (dodawanie sprzetow). Ich podglad poprzez wyswietlanie, ich sprzedaz oraz kupno.
+
+-zarzadzanie majatkiem firmy (podglad srodkow firmy, dodawanie pieniedzy, wydawanie pieniedzy). Stworz metode ktora wyplaci wszystkim praownikom pieniadze, oraz metode ktora obliczy amortyzacje sprzetow - czyli pomniejszy realna wartosc sprzetu.
+
+*dla ambitnych: powiekszanie maksymalnej ilosci pracownikow oraz assetow w firmie (tak jak w ksiazce bylo max 10 kontaktow, to zrobicie metode ktora zwiekszy, badz zmiejszy maksymalna ilosc pracownikow w firmie. Pamietaj by  skopiowac juz zatrudnionych pracownikow do nowej powiekszonej tablicy pracownikow.
